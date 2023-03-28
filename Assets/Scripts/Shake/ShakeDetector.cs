@@ -24,7 +24,6 @@ namespace Shake
 
         #endregion
         
-        
         public delegate void OnShakeDelegate(float lastShakeTime);
         public static event OnShakeDelegate OnShake;
 
