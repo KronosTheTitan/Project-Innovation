@@ -5,10 +5,10 @@ using System.Collections;
 public class GyroControls : MonoBehaviour
 {
     // STATE
-    [SerializeField] private Transform rawGyroRotation;
-    [SerializeField] private Quaternion initialRotation; 
-    [SerializeField] private Quaternion gyroInitialRotation;
-    [SerializeField] private Quaternion offsetRotation;
+    private Transform rawGyroRotation;
+    private Quaternion initialRotation; 
+    private Quaternion gyroInitialRotation;
+    private Quaternion offsetRotation;
     
     public bool GyroEnabled { get; set; }
     private bool gyroInitialized = false;
@@ -90,15 +90,24 @@ public class GyroControls : MonoBehaviour
         return new Quaternion(gyro.x, gyro.y, -gyro.z, -gyro.w);
     }
 
-    private bool HasGyro(){
+    /// <summary>
+    /// returns whether the device the code is running on
+    /// has a gyroscope.
+    /// </summary>
+    /// <returns></returns>
+    private static bool HasGyro(){
         return SystemInfo.supportsGyroscope;
     }
 
-    public void setSpeed(float speed){
-        this.speed = speed;
+    /// <summary>
+    /// sets the gyroscope speed
+    /// </summary>
+    /// <param name="targetSpeed"></param>
+    public void SetSpeed(float targetSpeed){
+        speed = targetSpeed;
     }
 
-    public float getSpeed(){
+    public float GetSpeed(){
         return speed;
     } 
 
