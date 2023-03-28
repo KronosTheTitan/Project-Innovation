@@ -1,42 +1,60 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
-[RequireComponent(typeof(PhysicsController))]
-public class ShakeDetector : MonoBehaviour
+namespace Shake
 {
-
-    [SerializeField] private TextMeshProUGUI shakeTxt = null;
-    [SerializeField] private Slider ShakeSlider= null;
-
-    public float ShakeDetectionThreshold;
-    public float MinShakeInterval;
-
-    private float sqrShakeDetectionThreshold;
-    private float timeSinceLastShake;
-
-    private PhysicsController physicsController;
-
-    void Start()
+    public class ShakeDetector : MonoBehaviour
     {
-        sqrShakeDetectionThreshold = Mathf.Pow(ShakeDetectionThreshold, 2);
-        physicsController = GetComponent<PhysicsController>();
+        #region Singleton
 
-    }
-
-    void Update()
-    {
-        shakeTxt.text = (Input.acceleration.sqrMagnitude + " ");
-
+        private static ShakeDetector _instance;
         
-        if (Input.acceleration.sqrMagnitude >= sqrShakeDetectionThreshold
-            && Time.unscaledTime >= timeSinceLastShake + MinShakeInterval)
+        private void Awake()
         {
-            physicsController.ShakeRigidbodies(Input.acceleration);
-            timeSinceLastShake = Time.unscaledTime;
+            if (_instance != null)
+            {
+                _instance = this;
+            }
+            else
+            {
+                Destroy(this);
+                Debug.LogError("More than one instance of ShakeDetector.");
+            }
+        }
 
+        #endregion
+        
+        
+        public delegate void OnShakeDelegate(float lastShakeTime);
+        public static event OnShakeDelegate OnShake;
+
+        [SerializeField] private float shakeDetectionThreshold;
+        [SerializeField] private float minShakeInterval;
+
+        [SerializeField] private float sqrShakeDetectionThreshold;
+        [SerializeField] private float lastShakeTime;
+
+        private const int PowerOfTwo = 2;
+
+        void Start()
+        {
+            sqrShakeDetectionThreshold = Mathf.Pow(shakeDetectionThreshold, PowerOfTwo);
+        }
+
+        void Update()
+        {
+            //if the acceleration magnitude is smaller than the threshold
+            //the method will not run.
+            if (Input.acceleration.sqrMagnitude < sqrShakeDetectionThreshold)
+                return;
+        
+            //if the unscaled time is smaller than the minimum time between shakes the method
+            //will return.
+            if (Time.unscaledTime < lastShakeTime + minShakeInterval)
+                return;
+        
+            lastShakeTime = Time.unscaledTime;
+            OnShake?.Invoke(lastShakeTime);
         }
     }
 }
