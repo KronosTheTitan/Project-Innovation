@@ -1,15 +1,15 @@
-
+using UnityEngine.UI;
 using UnityEngine;
 using System.Collections;
 
 public class GyroControls : MonoBehaviour
 {
     // STATE
-    private Transform rawGyroRotation;
-    private Quaternion initialRotation; 
-    private Quaternion gyroInitialRotation;
-    private Quaternion offsetRotation;
-
+    [SerializeField] private Transform rawGyroRotation;
+    [SerializeField] private Quaternion initialRotation; 
+    [SerializeField] private Quaternion gyroInitialRotation;
+    [SerializeField] private Quaternion offsetRotation;
+    
     public bool GyroEnabled { get; set; }
     private bool gyroInitialized = false;
 
@@ -41,6 +41,7 @@ public class GyroControls : MonoBehaviour
         if(HasGyro()){
             InitGyro();
             GyroEnabled = true;
+            Debug.Log("this device has a gyro");
         } else GyroEnabled = false;
 
         if(waitGyroInitialization)
@@ -52,6 +53,7 @@ public class GyroControls : MonoBehaviour
         initialRotation = transform.rotation; 
         Recalibrate();
 
+        
         /* GameObject instance used to prepare object movement */
         rawGyroRotation = new GameObject("GyroRaw").transform;
         rawGyroRotation.position = transform.position;
@@ -63,7 +65,7 @@ public class GyroControls : MonoBehaviour
         if (Time.timeScale == 1 && GyroEnabled)
         {
             ApplyGyroRotation(); // Get rotation state in rawGyroRotation
-
+            
             transform.rotation = Quaternion.Slerp(transform.rotation, initialRotation * rawGyroRotation.rotation, smoothing); // Progressive rotation of the object
         }
     }
@@ -76,11 +78,12 @@ public class GyroControls : MonoBehaviour
         float curSpeed = Time.deltaTime * speed;
         Quaternion tempGyroRotation = new Quaternion(
             offsetRotation.x * curSpeed, 
-            0f * curSpeed, 
             offsetRotation.y * curSpeed, 
+            offsetRotation.z * curSpeed, 
             offsetRotation.w * curSpeed
         );
         rawGyroRotation.rotation = tempGyroRotation;
+        Debug.Log(tempGyroRotation.ToString());
     }
 
     private Quaternion GyroToUnity(Quaternion gyro){
