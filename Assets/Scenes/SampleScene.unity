@@ -543,15 +543,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb6a722903086445bf7e18a372c377d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 1
-  minSpeed: 0
+  maxSpeed: 3
+  minSpeed: -1
   accelerationSmoothing: 0.9
   lookSmoothing: 0.1
   throttleSlider: {fileID: 1438986110}
   fuelBar: {fileID: 446667142}
   gyroControls: {fileID: 330585548}
   rigidbody: {fileID: 330585550}
-  currentFuel: 10
+  currentFuel: 100
 --- !u!54 &330585550
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -864,9 +864,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 2
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 10
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1488,7 +1488,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1892538810}
   m_Direction: 2
   m_MinValue: 0
-  m_MaxValue: 5
+  m_MaxValue: 4
   m_WholeNumbers: 1
   m_Value: 1
   m_OnValueChanged:
