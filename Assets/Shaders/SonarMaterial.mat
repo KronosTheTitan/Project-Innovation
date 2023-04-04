@@ -21,6 +21,18 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _EnemyTexture:
+        m_Texture: {fileID: 2800000, guid: 0eb67bfeb78c8f045986ef4e0d8e86e7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _POITexture:
+        m_Texture: {fileID: 2800000, guid: d4b68e161fb6a3748be5b31062dcd7dc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2D:
+        m_Texture: {fileID: 8400000, guid: 7f67d11c903577844a9230c685b06d91, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -37,7 +49,11 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    m_Colors: []
+    - _Rotation: 1.5
+    m_Colors:
+    - _Color: {r: 0.06594875, g: 0.22082385, b: 0.3584906, a: 1}
+    - _EnemyColor: {r: 1, g: 0, b: 0, a: 1}
+    - _POIColor: {r: 0.8962264, g: 0.7158701, b: 0.12259697, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &7737078500736584291
 MonoBehaviour:

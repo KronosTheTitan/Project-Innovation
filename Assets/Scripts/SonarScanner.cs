@@ -18,21 +18,18 @@ public class SonarScanner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //create list of colours to reset textures
         colors = new Color[enemyTexture.width * enemyTexture.height];
-        clearTextures();
-        //Clear texture
-        //Cler lists
-        currentTimer = updateTimer;
-        sonarCollider = GetComponent<SphereCollider>();
-        enemyTexture.SetPixel(64, 32, Color.red);
-        enemyTexture.Apply();
-
-        //
-
         for (int i = 0; i < colors.Length; i++)
         {
             colors[i] = Color.black;
         }
+        clearTextures();
+        currentTimer = updateTimer;
+        sonarCollider = GetComponent<SphereCollider>();
+
+
+
     }
 
     // Update is called once per frame
@@ -50,67 +47,54 @@ public class SonarScanner : MonoBehaviour
 
 
     }
-    
-    private void UpdateSonar()
+
+
+    private void updateTextures(List<GameObject> items, Texture2D texture)
     {
-        clearTextures();
-        //get differance of coordinates of player and enemy
-        // normalize that distance by dividing it of the sonar collider range
-        // multiply it by the radar range
-        // do these 3 comments above for each enemy in the list
 
-        foreach(GameObject enemy in enemies)
+        foreach (GameObject item in items)
         {
-            Vector3 deltaPosition = enemy.transform.position - this.transform.position;
-
-            Vector2 enemyPos = new Vector2(enemy.transform.position.x, enemy.transform.position.z);
-            Vector2 playerPos = new Vector2(this.transform.position.x, this.transform.position.z);
-
-            float distance = Vector3.Distance(enemy.transform.position, this.transform.position);
-            Vector2 radarPosition = new Vector2(deltaPosition.x, deltaPosition.z);
-            //enemyPos = radarPosition;
-
+            //save old rotation
             Quaternion oldrot = this.transform.rotation;
-            this.transform.LookAt(enemyPos);
+            //we look at the item
+            this.transform.LookAt(new Vector3(item.transform.position.x, this.transform.position.y, item.transform.position.z));
+            //save the vector of the rotation towards the item
             Vector2 something = new Vector2(this.transform.forward.x, this.transform.forward.z);
+            //set the rotation back
             this.transform.rotation = oldrot;
+            //save the rotatation in which the submarine is looking
             Vector2 submarine = new Vector2(this.transform.forward.x, this.transform.forward.z);
 
-
-            radarPosition /= sonarCollider.radius;
-
-            //gets the rotation direction of the player and normalizes it (blue vector)
-            Vector2 forwardVector = new Vector2(this.transform.forward.x, this.transform.forward.z);
-            forwardVector.Normalize();
-            Debug.Log("Forward: " + forwardVector);
-
-            radarPosition.x = (-1 * forwardVector.y);
-            radarPosition.y = (-1 * forwardVector.x);
-
-            //something.Normalize
-
-            enemyPos.Normalize();
+            //get the angle between the 2 vectors
             float angle = Vector2.SignedAngle(submarine, something);
+            //make a vector out of the angle
             float x = Mathf.Cos(angle * Mathf.Deg2Rad);
             float y = Mathf.Sin(angle * Mathf.Deg2Rad);
 
-            radarPosition.x = x;
-            radarPosition.y = y;
+            //save the vector to the position
+            Vector2 radarPosition = new Vector2(x, y);
 
 
+            //get the distance between the item and submarine in the world
+            float distance = Vector3.Distance(item.transform.position, this.transform.position);
 
-
-
+            //normalize the distance compared to the sonar radius
             radarPosition *= (distance / sonarCollider.radius);
-            Debug.Log("radar normal: " + radarPosition);
-            radarPosition *= enemyTexture.width / 2;
-            Debug.Log("radar enemy: " + radarPosition);
-            //radarPosition *= enemyTexture.width / 2;
-            
+            //multiply it by the texture size
+            radarPosition *= texture.width / 2;
 
-            enemyTexture.SetPixel(64+(int)radarPosition.x, 64+(int)radarPosition.y, Color.white);
-            enemyTexture.Apply();
+            //set pixels and apply them
+            texture.SetPixel(texture.width / 2 + (int)radarPosition.x, texture.width / 2 + (int)radarPosition.y, Color.white);
+            texture.Apply();
         }
+    }
+
+
+    private void UpdateSonar()
+    {
+        clearTextures();
+        updateTextures(enemies, enemyTexture);
+        updateTextures(POI, POItexture);
 
     }
 
@@ -119,6 +103,10 @@ public class SonarScanner : MonoBehaviour
 
         enemyTexture.SetPixels(0, 0, enemyTexture.width, enemyTexture.height, colors);
         enemyTexture.Apply();
+
+        POItexture.SetPixels(0, 0, POItexture.width, POItexture.height, colors);
+        POItexture.Apply();
+
     }
 
     private void OnTriggerEnter(Collider other)
