@@ -37,7 +37,7 @@ public class KeyboardControls : GyroControls
             Debug.Log("Right");
         }
         
-        Debug.Log("test");
+        //Debug.Log("test");
 
         return _currentRotation;
     }
