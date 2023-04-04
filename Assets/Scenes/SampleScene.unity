@@ -502,6 +502,7 @@ GameObject:
   - component: {fileID: 330585551}
   - component: {fileID: 330585550}
   - component: {fileID: 330585548}
+  - component: {fileID: 330585552}
   - component: {fileID: 330585549}
   m_Layer: 0
   m_Name: Player
@@ -616,7 +617,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8de5bbd24e700b04ba4b19034168695f, type: 3}
   m_Name: 
@@ -644,7 +645,7 @@ MonoBehaviour:
   lookSmoothing: 0.1
   throttleSlider: {fileID: 1438986110}
   fuelBar: {fileID: 446667142}
-  gyroControls: {fileID: 330585548}
+  gyroControls: {fileID: 330585552}
   rigidbody: {fileID: 330585550}
   currentFuel: 100
 --- !u!54 &330585550
@@ -677,6 +678,23 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &330585552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e58a57e78b6579459956eb0c3a56e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothing: 0.1
+  speed: 60
+  waitGyroInitialization: 1
+  waitGyroInitializationDuration: 1
+  debug: 0
 --- !u!1 &370090356
 GameObject:
   m_ObjectHideFlags: 0

@@ -60,7 +60,7 @@ public class GyroControls : MonoBehaviour
         _rawGyroRotation.rotation = transform.rotation;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (Time.timeScale == 1 && _gyroEnabled)
         {
@@ -110,7 +110,7 @@ public class GyroControls : MonoBehaviour
     /// returns the rotation of the gyroscope.
     /// </summary>
     /// <returns></returns>
-    public Quaternion GetCurrentRotation()
+    public virtual Quaternion GetCurrentRotation()
     {
         return _rawGyroRotation.rotation;
     }
