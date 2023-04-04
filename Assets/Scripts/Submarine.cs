@@ -64,10 +64,10 @@ public class Submarine : MonoBehaviour
         //todo: move code to separate area because its UI and doesn't belong in here.
         fuelBar.value = currentFuel;
         
-        Debug.Log("---Start of frame---");
-        Debug.Log(currentSpeed);
-        Debug.Log(rigidbody.velocity);
-        Debug.Log("---End of frame---");
+        //Debug.Log("---Start of frame---");
+        //Debug.Log(currentSpeed);
+        //Debug.Log(rigidbody.velocity);
+        //Debug.Log("---End of frame---");
     }
 
     public delegate void PlayerOutOfFuel();
