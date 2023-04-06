@@ -34,6 +34,7 @@ public class Submarine : MonoBehaviour
     [SerializeField] private new Rigidbody rigidbody;
 
     [SerializeField] private float currentFuel;
+    [SerializeField] private float maxFuel;
     
     private void Update()
     {
@@ -72,4 +73,10 @@ public class Submarine : MonoBehaviour
 
     public delegate void PlayerOutOfFuel();
     public event PlayerOutOfFuel OnPlayerOutOfFuel;
+
+    public void AddFuel(float amountOfFuel)
+    {
+        currentFuel += amountOfFuel;
+        currentFuel = Mathf.Clamp(currentFuel, 0, maxFuel);
+    }
 }
