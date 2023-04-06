@@ -10,6 +10,7 @@ public class Shark : MonoBehaviour
 
     private void Update()
     {
+        //sry for the long line
         bool playerInRange = Vector3.Distance(GameManager.Instance.GetPlayer().transform.position, transform.position) < agroDistance;
         if (playerInRange)
         {
