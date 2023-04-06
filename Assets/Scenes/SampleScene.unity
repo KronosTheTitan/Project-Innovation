@@ -1122,6 +1122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 612344064}
+  agroDistance: 100
+  attackSpeed: 1
 --- !u!114 &612344064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1695,6 +1697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treasureCollected: 0
+  player: {fileID: 330585549}
 --- !u!4 &1446642491
 Transform:
   m_ObjectHideFlags: 0

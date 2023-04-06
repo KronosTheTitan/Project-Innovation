@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-public class CollectableManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     #region Singleton
 
-    public static CollectableManager Instance { get; private set; }
+    public static GameManager Instance { get; private set; }
 
     private void Awake()
     {
@@ -22,9 +22,15 @@ public class CollectableManager : MonoBehaviour
     #endregion
     
     [SerializeField] private int treasureCollected;
+    [SerializeField] private Submarine player;
 
     public void PickupTreasure()
     {
         treasureCollected++;
+    }
+
+    public Submarine GetPlayer()
+    {
+        return player;
     }
 }

@@ -15,16 +15,13 @@ namespace AI
 
         public Vector3 GetPoint(int pointIndex) {
             if (pointIndex<0) {
-                Debug.Log("test 1");
                 return Vector3.zero;
             }
 
             if (pointIndex > points.Count)
             {
-                Debug.Log("test 2");
                 pointIndex -= NumPoints();
             }
-            Debug.Log("test 3");
             
             return transform.TransformPoint(points[pointIndex]);
         }
