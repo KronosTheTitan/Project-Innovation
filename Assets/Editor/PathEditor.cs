@@ -106,5 +106,7 @@ public class CurveEditor : Editor {
 				curve.Apply();
 			}
 		}
+
+		Handles.DrawLine(curve.GetPoint(curve.NumPoints() - 1), curve.GetPoint(0));
 	}
 }
