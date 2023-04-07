@@ -62,10 +62,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1456391056880076870, guid: 6efb0408ce54843a182e9a7c635a215b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 708671421c4b44d4d945cd6fe7cc78bc, type: 2}
     - target: {fileID: 919132149155446097, guid: 6efb0408ce54843a182e9a7c635a215b,
         type: 3}
       propertyPath: m_Name
-      value: CoralThick
+      value: CoralThick Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6efb0408ce54843a182e9a7c635a215b, type: 3}

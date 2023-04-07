@@ -62,10 +62,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5948178386148294176, guid: ff41616c666fc46979c131996a50955c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 708671421c4b44d4d945cd6fe7cc78bc, type: 2}
     - target: {fileID: 919132149155446097, guid: ff41616c666fc46979c131996a50955c,
         type: 3}
       propertyPath: m_Name
-      value: BrokenStairs2
+      value: BrokenStairs2 Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff41616c666fc46979c131996a50955c, type: 3}
+--- !u!1 &3158391063522213442 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ff41616c666fc46979c131996a50955c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2816353000536097555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1205877382065928699
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3158391063522213442}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.55, y: 2.83, z: 2.21}
+  m_Center: {x: 0.65, y: 1.93, z: 1.02}
