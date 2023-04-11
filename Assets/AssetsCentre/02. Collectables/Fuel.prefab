@@ -67,11 +67,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fuel
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 93377533fa0564e8aa8eb915b3327aa8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Fuel
+      objectReference: {fileID: 0}
     - target: {fileID: 3939010342977948177, guid: 93377533fa0564e8aa8eb915b3327aa8,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4b25c8bb356b27244bc4cd6dda5a0d75, type: 2}
+    - target: {fileID: 5991950868965959031, guid: 93377533fa0564e8aa8eb915b3327aa8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Fuel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93377533fa0564e8aa8eb915b3327aa8, type: 3}
 --- !u!1 &2576266093074221366 stripped
@@ -93,3 +103,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &8945971974133289232 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5991950868965959031, guid: 93377533fa0564e8aa8eb915b3327aa8,
+    type: 3}
+  m_PrefabInstance: {fileID: 3387223197544854631}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &7509745847108320346
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8945971974133289232}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 7.41
+  m_Center: {x: -0.3, y: 4.25, z: -0.0000009536743}

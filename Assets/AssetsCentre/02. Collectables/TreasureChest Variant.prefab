@@ -67,6 +67,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TreasureChest Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0b80a5a00a26b43aebb576944e9aa30f,
+        type: 3}
+      propertyPath: m_TagString
+      value: POI
+      objectReference: {fileID: 0}
     - target: {fileID: 5328557883594530344, guid: 0b80a5a00a26b43aebb576944e9aa30f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

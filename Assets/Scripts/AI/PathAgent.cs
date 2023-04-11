@@ -3,12 +3,24 @@ using UnityEngine;
 
 public class PathAgent : MonoBehaviour
 {
+
+
+    //cOMeNts
     [SerializeField] private Path path;
 
     [SerializeField] private float speed;
     [SerializeField] private int pathIndex;
     [SerializeField] private Vector3 currentPosition;
 
+    private void Start()
+    {
+        //do this if you want him to move from current position to first position of path
+        //currentPosition = this.transform.position;
+
+        //do this if you want him to spawn at the first point of path
+        this.transform.position = path.GetPoint(0);
+        currentPosition = this.transform.position;
+    }
     public Vector3 MoveAlongPath()
     {
         int nextPointIndex = pathIndex + 1;

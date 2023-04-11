@@ -21,13 +21,22 @@ public class GameManager : MonoBehaviour
 
     #endregion
     
-    [SerializeField] private int treasureCollected;
+    [SerializeField] public int treasureCollected;
     [SerializeField] private Submarine player;
+    [SerializeField] public int treasureDeposited;
 
     public void PickupTreasure()
     {
         treasureCollected++;
     }
+
+    public void DespositTreasure()
+    {
+        treasureDeposited += treasureCollected;
+        treasureCollected = 0;
+    }
+
+   
 
     public Submarine GetPlayer()
     {
