@@ -60,7 +60,7 @@ public class Submarine : MonoBehaviour
         
         rigidbody.velocity = Vector3.Lerp(rigidbody.velocity, desiredVelocity,accelerationSmoothing);
 
-        currentFuel -= currentSpeed * Time.deltaTime;
+        currentFuel -= 1 * Time.deltaTime;
 
         //todo: move code to separate area because its UI and doesn't belong in here.
         fuelBar.value = currentFuel;

@@ -65,7 +65,31 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 93377533fa0564e8aa8eb915b3327aa8,
         type: 3}
       propertyPath: m_Name
-      value: Rock02
+      value: Rock02 Variant 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3939010342977948177, guid: 93377533fa0564e8aa8eb915b3327aa8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7c1a065e5e4564799a0664b5fa304be5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93377533fa0564e8aa8eb915b3327aa8, type: 3}
+--- !u!1 &8945971974133289232 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5991950868965959031, guid: 93377533fa0564e8aa8eb915b3327aa8,
+    type: 3}
+  m_PrefabInstance: {fileID: 3387223197544854631}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6554853068753850825
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8945971974133289232}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.013563, y: 3.961995, z: 7.843202}
+  m_Center: {x: 0.088279486, y: 1.9163765, z: -0.0000009536743}

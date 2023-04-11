@@ -16,7 +16,7 @@ namespace AI
         public Vector3 GetPoint(int pointIndex) {
             if (pointIndex<0) {
                 return Vector3.zero;
-            }
+           }
 
             if (pointIndex > points.Count)
             {

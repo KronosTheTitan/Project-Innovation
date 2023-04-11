@@ -65,7 +65,26 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0a8d77b1f9e044f0eb7c44fd5883f085,
         type: 3}
       propertyPath: m_Name
-      value: Pillar
+      value: Pillar Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a8d77b1f9e044f0eb7c44fd5883f085, type: 3}
+--- !u!1 &6431474714685895762 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0a8d77b1f9e044f0eb7c44fd5883f085,
+    type: 3}
+  m_PrefabInstance: {fileID: 6161023231572527363}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &299657147181559701
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6431474714685895762}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 4, z: 1}
+  m_Center: {x: 0, y: 2, z: 0}
