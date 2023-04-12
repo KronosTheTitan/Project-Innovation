@@ -5,33 +5,14 @@ namespace Shake
 {
     public class ShakeDetector : MonoBehaviour
     {
-        #region Singleton
-
-        private static ShakeDetector _instance;
-        
-        private void Awake()
-        {
-            if (_instance != null)
-            {
-                _instance = this;
-            }
-            else
-            {
-                Destroy(this);
-                Debug.LogError("More than one instance of ShakeDetector.");
-            }
-        }
-
-        #endregion
-        
-        public delegate void OnShakeDelegate(float lastShakeTime);
-        public static event OnShakeDelegate OnShake;
 
         [SerializeField] private float shakeDetectionThreshold;
         [SerializeField] private float minShakeInterval;
 
         [SerializeField] private float sqrShakeDetectionThreshold;
         [SerializeField] private float lastShakeTime;
+        [SerializeField] private float shakeStrength;
+        [SerializeField] private float shakeDecaySpeed;
 
         private const int PowerOfTwo = 2;
 
@@ -40,20 +21,33 @@ namespace Shake
             sqrShakeDetectionThreshold = Mathf.Pow(shakeDetectionThreshold, PowerOfTwo);
         }
 
+        public bool HasBeenShakingFor(float threshold)
+        {
+            if (shakeStrength > threshold)
+                return true;
+
+            return false;
+        }
+
         void Update()
         {
+            shakeStrength -= shakeDecaySpeed * Time.deltaTime;
             //if the acceleration magnitude is smaller than the threshold
             //the method will not run.
             if (Input.acceleration.sqrMagnitude < sqrShakeDetectionThreshold)
+            {
                 return;
+            }
         
             //if the unscaled time is smaller than the minimum time between shakes the method
             //will return.
             if (Time.unscaledTime < lastShakeTime + minShakeInterval)
+            {
                 return;
-        
+            }
+            
+            shakeStrength += 1 * Time.deltaTime;
             lastShakeTime = Time.unscaledTime;
-            OnShake?.Invoke(lastShakeTime);
         }
     }
 }

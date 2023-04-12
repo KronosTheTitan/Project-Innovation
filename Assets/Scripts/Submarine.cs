@@ -1,3 +1,4 @@
+using Shake;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,9 +36,44 @@ public class Submarine : MonoBehaviour
 
     [SerializeField] private float currentFuel;
     [SerializeField] private float maxFuel;
-    
+
+    [SerializeField] private float lastSquid;
+    [SerializeField] private float minTimeBetweenSquid;
+    [SerializeField] private float maxTimeBetweenSquid;
+    [SerializeField] private float currentTimeBetweenSquid;
+    [SerializeField] private bool squidPresent;
+    [SerializeField] private GameObject squid;
+
+    [SerializeField] private float shakeLengthRequired;
+    [SerializeField] private ShakeDetector shakeDetector;
     private void Update()
     {
+        if (squidPresent)
+        {
+            currentFuel -= 10 * Time.deltaTime;
+
+            if (shakeDetector.HasBeenShakingFor(shakeLengthRequired))
+            {
+                lastSquid = Time.time;
+                currentTimeBetweenSquid = Random.Range(minTimeBetweenSquid, maxTimeBetweenSquid);
+                squidPresent = false;
+                squid.SetActive(false);
+            
+                return;
+            }
+        }
+
+        if (lastSquid + currentTimeBetweenSquid > Time.time)
+        {
+            squid.SetActive(true);
+            squidPresent = true;
+            throttleSlider.value = 1;
+            
+            
+            return;
+        }
+        
+        
         //Check if the player has enough fuel to continue.
         if (currentFuel <= 0)
         {
