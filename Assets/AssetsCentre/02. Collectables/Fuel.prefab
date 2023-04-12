@@ -80,7 +80,7 @@ PrefabInstance:
     - target: {fileID: 5991950868965959031, guid: 93377533fa0564e8aa8eb915b3327aa8,
         type: 3}
       propertyPath: m_TagString
-      value: Fuel
+      value: POI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93377533fa0564e8aa8eb915b3327aa8, type: 3}
