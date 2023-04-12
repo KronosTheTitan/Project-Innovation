@@ -328,7 +328,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
     "m_ObjectId": "0fa0cc3d402a47ccb21c4ac0c05835c7",
     "m_Id": 0,
-    "m_DisplayName": "BottomColor",
+    "m_DisplayName": "TopColor",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -1091,10 +1091,10 @@
     "m_Guid": {
         "m_GuidSerialized": "3982c49a-9714-4c02-9358-4e304fad2493"
     },
-    "m_Name": "BottomColor",
+    "m_Name": "TopColor",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "BottomColor",
-    "m_DefaultReferenceName": "_BottomColor",
+    "m_RefNameGeneratedByDisplayName": "TopColor",
+    "m_DefaultReferenceName": "_TopColor",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -1118,7 +1118,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
     "m_ObjectId": "bf2bb26a6157471a85fc20a06bbbbd66",
     "m_Id": 0,
-    "m_DisplayName": "TopColor",
+    "m_DisplayName": "BottomColor",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -1219,10 +1219,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -758.2816162109375,
-            "y": 132.74957275390626,
-            "width": 0.0,
-            "height": 0.0
+            "x": -765.0,
+            "y": 126.00000762939453,
+            "width": 126.0,
+            "height": 34.00000762939453
         }
     },
     "m_Slots": [
@@ -1306,10 +1306,10 @@
     "m_Guid": {
         "m_GuidSerialized": "a177e33d-fbc6-4d13-bd65-3b90c4b1f0e6"
     },
-    "m_Name": "TopColor",
+    "m_Name": "BottomColor",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "TopColor",
-    "m_DefaultReferenceName": "_TopColor",
+    "m_RefNameGeneratedByDisplayName": "BottomColor",
+    "m_DefaultReferenceName": "_BottomColor",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
