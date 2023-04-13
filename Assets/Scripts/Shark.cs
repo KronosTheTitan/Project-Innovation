@@ -30,4 +30,17 @@ public class Shark : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    [SerializeField] private float damage;
+    
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name != "Player")
+            return;
+
+        Submarine submarine = collision.gameObject.GetComponent<Submarine>();
+        submarine.AddFuel(damage);
+        
+        Destroy(gameObject);
+    }
 }
