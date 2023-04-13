@@ -58,13 +58,18 @@ public class Submarine : MonoBehaviour
                 currentTimeBetweenSquid = Random.Range(minTimeBetweenSquid, maxTimeBetweenSquid);
                 squidPresent = false;
                 squid.SetActive(false);
-            
-                return;
+
+                //Debug.Log("Squid Cleared" + Time.time);
+                
             }
+
+            return;
         }
 
         if (lastSquid + currentTimeBetweenSquid > Time.time)
         {
+            //Debug.Log("squid apeared");
+
             squid.SetActive(true);
             squidPresent = true;
             throttleSlider.value = 1;

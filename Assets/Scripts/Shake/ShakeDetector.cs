@@ -32,6 +32,9 @@ namespace Shake
         void Update()
         {
             shakeStrength -= shakeDecaySpeed * Time.deltaTime;
+
+            shakeStrength = Mathf.Clamp(shakeStrength,0,100);
+
             //if the acceleration magnitude is smaller than the threshold
             //the method will not run.
             if (Input.acceleration.sqrMagnitude < sqrShakeDetectionThreshold)
@@ -45,7 +48,9 @@ namespace Shake
             {
                 return;
             }
-            
+
+            Debug.Log(shakeStrength);
+
             shakeStrength += 1 * Time.deltaTime;
             lastShakeTime = Time.unscaledTime;
         }

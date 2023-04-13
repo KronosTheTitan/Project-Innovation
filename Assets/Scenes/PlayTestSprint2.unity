@@ -7076,7 +7076,7 @@ RectTransform:
   - {fileID: 1990910578}
   - {fileID: 1800005208}
   m_Father: {fileID: 1730708311}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -8066,6 +8066,7 @@ GameObject:
   - component: {fileID: 1473223933}
   - component: {fileID: 1473223932}
   - component: {fileID: 1473223931}
+  - component: {fileID: 1473223941}
   - component: {fileID: 1473223930}
   - component: {fileID: 1473223940}
   - component: {fileID: 1473223939}
@@ -8097,15 +8098,15 @@ MonoBehaviour:
   gyroControls: {fileID: 1473223932}
   rigidbody: {fileID: 1473223933}
   currentFuel: 500
-  maxFuel: 0
+  maxFuel: 500
   lastSquid: 0
-  minTimeBetweenSquid: 0
-  maxTimeBetweenSquid: 0
-  currentTimeBetweenSquid: 0
+  minTimeBetweenSquid: 5
+  maxTimeBetweenSquid: 10
+  currentTimeBetweenSquid: 2
   squidPresent: 0
-  squid: {fileID: 0}
-  shakeLengthRequired: 0
-  shakeDetector: {fileID: 0}
+  squid: {fileID: 2027529548}
+  shakeLengthRequired: 5
+  shakeDetector: {fileID: 1473223941}
 --- !u!114 &1473223931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8301,6 +8302,24 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 377.04
   m_Center: {x: 0.0000011920929, y: 0.00024414062, z: 0.00036621094}
+--- !u!114 &1473223941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473223929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09e2bb2c4f09290458bc5839f0e589d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDetectionThreshold: 10
+  minShakeInterval: 2
+  sqrShakeDetectionThreshold: 6
+  lastShakeTime: 2
+  shakeStrength: 2
+  shakeDecaySpeed: 1
 --- !u!1001 &1474658517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8396,7 +8415,7 @@ PrefabInstance:
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
@@ -9275,6 +9294,82 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1624647321}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1626297372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1626297373}
+  - component: {fileID: 1626297375}
+  - component: {fileID: 1626297374}
+  m_Layer: 5
+  m_Name: Squid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1626297373
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626297372}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2027529549}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.029846, y: -0.000038147}
+  m_SizeDelta: {x: 1919.9, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1626297374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626297372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: adff5cf130cb12b479d01b30984b5e63, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1626297375
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626297372}
+  m_CullTransparentMesh: 1
 --- !u!1 &1648958974
 GameObject:
   m_ObjectHideFlags: 0
@@ -9442,7 +9537,7 @@ RectTransform:
   - {fileID: 558252196}
   - {fileID: 39287202}
   m_Father: {fileID: 1730708311}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -9691,11 +9786,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1777185488}
+  - {fileID: 2027529549}
   - {fileID: 1372733844}
-  - {fileID: 1485798205}
   - {fileID: 1344521264}
   - {fileID: 1727858712}
+  - {fileID: 1485798205}
   - {fileID: 158974141}
   - {fileID: 1444595028}
   - {fileID: 1648958975}
@@ -9829,7 +9924,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1777185488
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9837,13 +9932,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777185487}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1730708311}
-  m_RootOrder: 0
+  m_Father: {fileID: 2027529549}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11512,6 +11607,44 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2025425879}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2027529548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2027529549}
+  m_Layer: 5
+  m_Name: SquidEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2027529549
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027529548}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1626297373}
+  - {fileID: 1777185488}
+  m_Father: {fileID: 1730708311}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &2029262512
 PrefabInstance:
   m_ObjectHideFlags: 0
