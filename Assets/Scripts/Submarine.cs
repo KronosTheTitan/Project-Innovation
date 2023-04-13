@@ -59,6 +59,7 @@ public class Submarine : MonoBehaviour
                 squidPresent = false;
                 squid.SetActive(false);
 
+                shakeDetector.StopDetector();
                 //Debug.Log("Squid Cleared" + Time.time);
                 
             }
@@ -66,8 +67,10 @@ public class Submarine : MonoBehaviour
             return;
         }
 
-        if (lastSquid + currentTimeBetweenSquid > Time.time)
+        if (lastSquid + currentTimeBetweenSquid < Time.time)
         {
+            shakeDetector.StartDetector();
+
             //Debug.Log("squid apeared");
 
             squid.SetActive(true);

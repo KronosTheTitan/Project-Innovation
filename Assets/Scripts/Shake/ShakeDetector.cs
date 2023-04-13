@@ -29,11 +29,19 @@ namespace Shake
             return false;
         }
 
+        bool detectorEnabled;
+
         void Update()
         {
+
+            if (!detectorEnabled)
+                return;
+            Debug.Log(shakeStrength);
+            Debug.Log(shakeDetectionThreshold);
+
             shakeStrength -= shakeDecaySpeed * Time.deltaTime;
 
-            shakeStrength = Mathf.Clamp(shakeStrength,0,100);
+            shakeStrength = Mathf.Clamp(shakeStrength,0.1f,100);
 
             //if the acceleration magnitude is smaller than the threshold
             //the method will not run.
@@ -49,10 +57,21 @@ namespace Shake
                 return;
             }
 
-            Debug.Log(shakeStrength);
+            
 
-            shakeStrength += 1 * Time.deltaTime;
+            shakeStrength += 2 * Time.deltaTime;
             lastShakeTime = Time.unscaledTime;
+        }
+
+        public void StartDetector()
+        {
+            detectorEnabled = true;
+        }
+
+        public void StopDetector()
+        {
+            shakeStrength = 1;
+            detectorEnabled = false;
         }
     }
 }

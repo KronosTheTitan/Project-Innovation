@@ -8314,12 +8314,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e2bb2c4f09290458bc5839f0e589d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeDetectionThreshold: 10
-  minShakeInterval: 2
-  sqrShakeDetectionThreshold: 6
-  lastShakeTime: 2
-  shakeStrength: 2
-  shakeDecaySpeed: 1
+  shakeDetectionThreshold: 2
+  minShakeInterval: 0
+  sqrShakeDetectionThreshold: 1
+  lastShakeTime: 1
+  shakeStrength: 1
+  shakeDecaySpeed: 0.4
 --- !u!1001 &1474658517
 PrefabInstance:
   m_ObjectHideFlags: 0
