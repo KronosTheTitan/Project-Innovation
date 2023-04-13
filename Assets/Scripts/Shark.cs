@@ -25,4 +25,9 @@ public class Shark : MonoBehaviour
             transform.position = newPosition;
         }
     }
+
+    public void TakeDamage()
+    {
+        Destroy(gameObject);
+    }
 }

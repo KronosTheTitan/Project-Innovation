@@ -115,4 +115,17 @@ public class Submarine : MonoBehaviour
         currentFuel += amountOfFuel;
         currentFuel = Mathf.Clamp(currentFuel, 0, maxFuel);
     }
+
+    [SerializeField] private Transform rocketSpawn;
+    [SerializeField] private Projectile torpedoPrefab;
+    [SerializeField] private int torpedoesStored;
+
+    public void Shoot()
+    {
+        if(torpedoesStored <= 0)
+            return;
+
+        torpedoesStored--;
+        Instantiate(torpedoPrefab, rocketSpawn.position, rocketSpawn.rotation);
+    }
 }
