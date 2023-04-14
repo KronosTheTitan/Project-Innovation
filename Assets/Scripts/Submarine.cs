@@ -1,6 +1,7 @@
 using Shake;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Submarine : MonoBehaviour
@@ -46,6 +47,10 @@ public class Submarine : MonoBehaviour
 
     [SerializeField] private float shakeLengthRequired;
     [SerializeField] private ShakeDetector shakeDetector;
+
+    
+    
+
     private void Update()
     {
         if (squidPresent)
@@ -105,6 +110,7 @@ public class Submarine : MonoBehaviour
         rigidbody.velocity = Vector3.Lerp(rigidbody.velocity, desiredVelocity,accelerationSmoothing);
 
         currentFuel -= 1 * Time.deltaTime;
+        
 
         //todo: move code to separate area because its UI and doesn't belong in here.
         fuelBar.value = currentFuel;
@@ -134,6 +140,17 @@ public class Submarine : MonoBehaviour
             return;
 
         torpedoesStored--;
+
+        
+        shootSource.Play();
+
         Instantiate(torpedoPrefab, rocketSpawn.position, rocketSpawn.rotation);
     }
+
+
+    //Audio
+    [SerializeField] AudioSource shootSource;
+    
+
+
 }
