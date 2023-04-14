@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public void DespositTreasure()
     {
         treasureDeposited += treasureCollected;
+        player.AddRocket(treasureCollected);
         treasureCollected = 0;
     }
 
