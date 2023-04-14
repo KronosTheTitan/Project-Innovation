@@ -8868,9 +8868,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -3288698926247666996, guid: dccae5b066c02094a97d9697a1f3895e,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 840bbd9b463b6b94ca2b3bd3a0dd87db, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.772
+  m_audioClip: {fileID: 8300000, guid: a118264a00b9ee34083ce74f9fd9748a, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -13994,9 +13994,14 @@ PrefabInstance:
       objectReference: {fileID: 1473223943}
     - target: {fileID: 6552603273953440939, guid: e710fd7f3b67d094e86865ed140b9856,
         type: 3}
-      propertyPath: engineSource
+      propertyPath: squidSource
       value: 
       objectReference: {fileID: 1473223944}
+    - target: {fileID: 6552603273953440939, guid: e710fd7f3b67d094e86865ed140b9856,
+        type: 3}
+      propertyPath: engineSource
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6552603273953440939, guid: e710fd7f3b67d094e86865ed140b9856,
         type: 3}
       propertyPath: throttleSlider

@@ -56,6 +56,7 @@ public class Submarine : MonoBehaviour
         if (squidPresent)
         {
             currentFuel -= 10 * Time.deltaTime;
+            
 
             if (shakeDetector.HasBeenShakingFor(shakeLengthRequired))
             {
@@ -63,6 +64,8 @@ public class Submarine : MonoBehaviour
                 currentTimeBetweenSquid = Random.Range(minTimeBetweenSquid, maxTimeBetweenSquid);
                 squidPresent = false;
                 squid.SetActive(false);
+
+                squidSource.Stop();
 
                 shakeDetector.StopDetector();
                 //Debug.Log("Squid Cleared" + Time.time);
@@ -80,6 +83,7 @@ public class Submarine : MonoBehaviour
 
             squid.SetActive(true);
             squidPresent = true;
+            squidSource.Play();
             throttleSlider.value = 1;
             
             
@@ -150,7 +154,8 @@ public class Submarine : MonoBehaviour
 
     //Audio
     [SerializeField] AudioSource shootSource;
-    
+    [SerializeField] AudioSource squidSource;
+
 
 
 }
