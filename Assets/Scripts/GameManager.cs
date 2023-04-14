@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int treasureCollected;
     [SerializeField] private Submarine player;
     [SerializeField] public int treasureDeposited;
+    [SerializeField] private int treasureNeededForVictory;
+    
+    [SerializeField] private GameObject victoryScreen;
 
     public void PickupTreasure()
     {
@@ -33,10 +37,27 @@ public class GameManager : MonoBehaviour
     public void DespositTreasure()
     {
         treasureDeposited += treasureCollected;
+
+        if (treasureDeposited >= treasureNeededForVictory)
+        {
+            victoryScreen.SetActive(true);
+            player.LockPlayer();
+        }
+        
         treasureCollected = 0;
     }
 
-   
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    [SerializeField] private string mainMenuSceneName;
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(mainMenuSceneName);
+    }
 
     public Submarine GetPlayer()
     {
