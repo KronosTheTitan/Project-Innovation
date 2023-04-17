@@ -39400,7 +39400,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7e8ad6f9c342666449c1ee9d2a0ded62, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3886dedc79137274790119e8c286c377, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -103993,8 +103993,8 @@ MonoBehaviour:
   rocketSpawn: {fileID: 2073536844}
   torpedoPrefab: {fileID: -8731623232226086481, guid: 4ab2d90ff4004094c88275928a46f647,
     type: 3}
-  torpedoesStored: 0
-  maxTorpedoesStored: 0
+  torpedoesStored: 10
+  maxTorpedoesStored: 10
   shootSource: {fileID: 2073536846}
   squidSource: {fileID: 2073536845}
 --- !u!114 &2073536834
@@ -104225,7 +104225,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -104319,7 +104319,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -3288698926247666996, guid: dccae5b066c02094a97d9697a1f3895e,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: d9a3a6275d50883419f0aca2427291da, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
