@@ -68,7 +68,6 @@ public class Submarine : MonoBehaviour
                 squidSource.Stop();
 
                 shakeDetector.StopDetector();
-                //Debug.Log("Squid Cleared" + Time.time);
                 
             }
 
@@ -78,8 +77,6 @@ public class Submarine : MonoBehaviour
         if (lastSquid + currentTimeBetweenSquid < Time.time)
         {
             shakeDetector.StartDetector();
-
-            //Debug.Log("squid apeared");
 
             squid.SetActive(true);
             squidPresent = true;
@@ -119,10 +116,7 @@ public class Submarine : MonoBehaviour
         //todo: move code to separate area because its UI and doesn't belong in here.
         fuelBar.value = currentFuel;
         
-        //Debug.Log("---Start of frame---");
-        //Debug.Log(currentSpeed);
-        //Debug.Log(rigidbody.velocity);
-        //Debug.Log("---End of frame---");
+        fuelBar.value = currentFuel;
     }
 
     public delegate void PlayerOutOfFuel();
@@ -137,6 +131,7 @@ public class Submarine : MonoBehaviour
     [SerializeField] private Transform rocketSpawn;
     [SerializeField] private Projectile torpedoPrefab;
     [SerializeField] private int torpedoesStored;
+    [SerializeField] private int maxTorpedoesStored;
 
     public void Shoot()
     {
@@ -151,11 +146,12 @@ public class Submarine : MonoBehaviour
         Instantiate(torpedoPrefab, rocketSpawn.position, rocketSpawn.rotation);
     }
 
-
     //Audio
     [SerializeField] AudioSource shootSource;
     [SerializeField] AudioSource squidSource;
-
-
-
+    public void AddRocket(int amount)
+    {
+        torpedoesStored += amount;
+        torpedoesStored = Mathf.Clamp(torpedoesStored, 0, maxTorpedoesStored);
+    }
 }
