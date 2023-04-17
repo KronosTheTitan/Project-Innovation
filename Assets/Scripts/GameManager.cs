@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
         {
             victoryScreen.SetActive(true);
             player.LockPlayer();
+            SceneManager.LoadScene("victoryScene");
         }
         player.AddRocket(treasureCollected);
         treasureCollected = 0;
@@ -56,7 +57,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene(mainMenuSceneName);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public Submarine GetPlayer()

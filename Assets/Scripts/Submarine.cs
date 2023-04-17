@@ -2,6 +2,7 @@ using Shake;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Submarine : MonoBehaviour
@@ -79,6 +80,12 @@ public class Submarine : MonoBehaviour
                 
             }
 
+            if(currentFuel <= 0)
+            {
+                SceneManager.LoadScene("squidDeath");
+
+            }
+
             return;
         }
 
@@ -97,13 +104,14 @@ public class Submarine : MonoBehaviour
         
         
         //Check if the player has enough fuel to continue.
-        if (currentFuel <= 0)
+        if (currentFuel <= 0 && squidPresent == false)
         {
             throttleSlider.value = 0;
             rigidbody.velocity = new Vector3(0, 0, 0);
             
             OnPlayerOutOfFuel?.Invoke();
-            
+
+            SceneManager.LoadScene("fuelDeath");
             gameOverScreen.SetActive(true);
             
             return;

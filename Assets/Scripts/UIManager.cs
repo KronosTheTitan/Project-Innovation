@@ -46,7 +46,7 @@ public class UIManager : MonoBehaviour
 
     void playGame()
     {
-        SceneManager.LoadScene("PlayTestSprint2");
+        SceneManager.LoadScene("CalibrateScene");
     }
 
     void settingsScreen()
