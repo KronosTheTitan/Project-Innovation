@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
             victoryScreen.SetActive(true);
             player.LockPlayer();
         }
-        
+        player.AddRocket(treasureCollected);
         treasureCollected = 0;
     }
 

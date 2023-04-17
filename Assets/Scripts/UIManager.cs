@@ -24,6 +24,17 @@ public class UIManager : MonoBehaviour
         quitButton.onClick.AddListener(quitGame);
     }
 
+    public Slider throttleSlider;
+    
+
+    [SerializeField] AudioSource engineSource;
+
+
+    
+
+    
+
+
     public void updateStats()
     {
         heldTreasure.text = ("Treasure Held:" + GameManager.Instance.treasureCollected.ToString());
@@ -31,6 +42,7 @@ public class UIManager : MonoBehaviour
     }
 
 
+   
 
     void playGame()
     {

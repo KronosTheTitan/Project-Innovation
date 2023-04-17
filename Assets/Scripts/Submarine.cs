@@ -1,6 +1,7 @@
 using Shake;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Submarine : MonoBehaviour
@@ -48,14 +49,13 @@ public class Submarine : MonoBehaviour
 
     [SerializeField] private float shakeLengthRequired;
     [SerializeField] private ShakeDetector shakeDetector;
-
+    
     private bool locked = false;
 
     public void LockPlayer()
     {
         locked = true;
     }
-    
     private void Update()
     {
         if(locked)
@@ -64,6 +64,7 @@ public class Submarine : MonoBehaviour
         if (squidPresent)
         {
             currentFuel -= 10 * Time.deltaTime;
+            fuelBar.value = currentFuel;
 
             if (shakeDetector.HasBeenShakingFor(shakeLengthRequired))
             {
@@ -72,8 +73,9 @@ public class Submarine : MonoBehaviour
                 squidPresent = false;
                 squid.SetActive(false);
 
+                squidSource.Stop();
+
                 shakeDetector.StopDetector();
-                //Debug.Log("Squid Cleared" + Time.time);
                 
             }
 
@@ -84,10 +86,9 @@ public class Submarine : MonoBehaviour
         {
             shakeDetector.StartDetector();
 
-            //Debug.Log("squid apeared");
-
             squid.SetActive(true);
             squidPresent = true;
+            squidSource.Play();
             throttleSlider.value = 1;
             
             
@@ -120,14 +121,12 @@ public class Submarine : MonoBehaviour
         rigidbody.velocity = Vector3.Lerp(rigidbody.velocity, desiredVelocity,accelerationSmoothing);
 
         currentFuel -= 1 * Time.deltaTime;
+        
 
         //todo: move code to separate area because its UI and doesn't belong in here.
         fuelBar.value = currentFuel;
         
-        //Debug.Log("---Start of frame---");
-        //Debug.Log(currentSpeed);
-        //Debug.Log(rigidbody.velocity);
-        //Debug.Log("---End of frame---");
+        fuelBar.value = currentFuel;
     }
 
     public delegate void PlayerOutOfFuel();
@@ -142,6 +141,7 @@ public class Submarine : MonoBehaviour
     [SerializeField] private Transform rocketSpawn;
     [SerializeField] private Projectile torpedoPrefab;
     [SerializeField] private int torpedoesStored;
+    [SerializeField] private int maxTorpedoesStored;
 
     public void Shoot()
     {
@@ -149,6 +149,19 @@ public class Submarine : MonoBehaviour
             return;
 
         torpedoesStored--;
+
+        
+        shootSource.Play();
+
         Instantiate(torpedoPrefab, rocketSpawn.position, rocketSpawn.rotation);
+    }
+
+    //Audio
+    [SerializeField] AudioSource shootSource;
+    [SerializeField] AudioSource squidSource;
+    public void AddRocket(int amount)
+    {
+        torpedoesStored += amount;
+        torpedoesStored = Mathf.Clamp(torpedoesStored, 0, maxTorpedoesStored);
     }
 }
