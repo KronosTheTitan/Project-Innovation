@@ -1512,8 +1512,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Deposited:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d8353e9713aab3e4a945f0a8b9df8811, type: 2}
+  m_sharedMaterial: {fileID: -1929316684645584028, guid: d8353e9713aab3e4a945f0a8b9df8811,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1543,7 +1544,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -47411,6 +47412,7 @@ MonoBehaviour:
   treasureDeposited: 0
   treasureNeededForVictory: 0
   victoryScreen: {fileID: 0}
+  rocketsReplenished: 0
   mainMenuSceneName: MainMenu
 --- !u!4 &797910244
 Transform:
@@ -50867,6 +50869,7 @@ MonoBehaviour:
   gameOverScreen: {fileID: 0}
   shakeLengthRequired: 5
   shakeDetector: {fileID: 1030961907}
+  UIref: {fileID: 0}
   rocketSpawn: {fileID: 1030961906}
   torpedoPrefab: {fileID: -8731623232226086481, guid: 4ab2d90ff4004094c88275928a46f647,
     type: 3}
@@ -52225,6 +52228,7 @@ MonoBehaviour:
   settingsButton: {fileID: 0}
   quitButton: {fileID: 0}
   settingScreen: {fileID: 0}
+  missleList: []
   throttleSlider: {fileID: 1508476999}
   engineSource: {fileID: 0}
 --- !u!114 &1145763916
@@ -67377,7 +67381,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 5
   m_WholeNumbers: 1
-  m_Value: 2
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -94148,8 +94152,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Held: '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d8353e9713aab3e4a945f0a8b9df8811, type: 2}
+  m_sharedMaterial: {fileID: -1929316684645584028, guid: d8353e9713aab3e4a945f0a8b9df8811,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -94179,7 +94184,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535

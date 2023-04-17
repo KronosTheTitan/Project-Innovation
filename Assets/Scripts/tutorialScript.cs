@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class tutorialScript : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class tutorialScript : MonoBehaviour
         if (stage >= 8)
         {
             Destroy(nextButtonObject);
+            SceneManager.LoadScene("Final Scene");
         }
         tutList[stage].gameObject.SetActive(false);
         stage++;
