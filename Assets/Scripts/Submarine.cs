@@ -56,7 +56,7 @@ public class Submarine : MonoBehaviour
         if (squidPresent)
         {
             currentFuel -= 10 * Time.deltaTime;
-            
+            fuelBar.value = currentFuel;
 
             if (shakeDetector.HasBeenShakingFor(shakeLengthRequired))
             {
