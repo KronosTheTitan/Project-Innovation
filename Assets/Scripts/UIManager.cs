@@ -10,7 +10,15 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI heldTreasure;
     public TextMeshProUGUI depositedTreasure;
+    public Slider throttleSlider;
+    
 
+    [SerializeField] AudioSource engineSource;
+
+
+    
+
+    
 
     public void updateStats()
     {
@@ -18,7 +26,7 @@ public class UIManager : MonoBehaviour
         depositedTreasure.text = ("Treasure Deposited:" + GameManager.Instance.treasureDeposited.ToString());
     }
 
-    
 
+   
 
 }
