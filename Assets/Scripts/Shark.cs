@@ -39,7 +39,7 @@ public class Shark : MonoBehaviour
             return;
 
         Submarine submarine = collision.gameObject.GetComponent<Submarine>();
-        submarine.AddFuel(damage);
+        submarine.AddFuel(-damage);
         
         Destroy(gameObject);
     }
