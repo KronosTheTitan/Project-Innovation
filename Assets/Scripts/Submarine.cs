@@ -1,6 +1,7 @@
 using Shake;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Submarine : MonoBehaviour
@@ -46,11 +47,16 @@ public class Submarine : MonoBehaviour
 
     [SerializeField] private float shakeLengthRequired;
     [SerializeField] private ShakeDetector shakeDetector;
+
+    
+    
+
     private void Update()
     {
         if (squidPresent)
         {
             currentFuel -= 10 * Time.deltaTime;
+            
 
             if (shakeDetector.HasBeenShakingFor(shakeLengthRequired))
             {
@@ -58,6 +64,8 @@ public class Submarine : MonoBehaviour
                 currentTimeBetweenSquid = Random.Range(minTimeBetweenSquid, maxTimeBetweenSquid);
                 squidPresent = false;
                 squid.SetActive(false);
+
+                squidSource.Stop();
 
                 shakeDetector.StopDetector();
                 
@@ -72,6 +80,7 @@ public class Submarine : MonoBehaviour
 
             squid.SetActive(true);
             squidPresent = true;
+            squidSource.Play();
             throttleSlider.value = 1;
             
             
@@ -103,6 +112,10 @@ public class Submarine : MonoBehaviour
 
         currentFuel -= 1 * Time.deltaTime;
         
+
+        //todo: move code to separate area because its UI and doesn't belong in here.
+        fuelBar.value = currentFuel;
+        
         fuelBar.value = currentFuel;
     }
 
@@ -126,9 +139,16 @@ public class Submarine : MonoBehaviour
             return;
 
         torpedoesStored--;
+
+        
+        shootSource.Play();
+
         Instantiate(torpedoPrefab, rocketSpawn.position, rocketSpawn.rotation);
     }
 
+    //Audio
+    [SerializeField] AudioSource shootSource;
+    [SerializeField] AudioSource squidSource;
     public void AddRocket(int amount)
     {
         torpedoesStored += amount;
