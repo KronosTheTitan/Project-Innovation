@@ -44,15 +44,23 @@ public class Submarine : MonoBehaviour
     [SerializeField] private float currentTimeBetweenSquid;
     [SerializeField] private bool squidPresent;
     [SerializeField] private GameObject squid;
+    
+    [SerializeField] private GameObject gameOverScreen;
 
     [SerializeField] private float shakeLengthRequired;
     [SerializeField] private ShakeDetector shakeDetector;
-
     
-    
+    private bool locked = false;
 
+    public void LockPlayer()
+    {
+        locked = true;
+    }
     private void Update()
     {
+        if(locked)
+            return;
+        
         if (squidPresent)
         {
             currentFuel -= 10 * Time.deltaTime;
@@ -95,6 +103,8 @@ public class Submarine : MonoBehaviour
             rigidbody.velocity = new Vector3(0, 0, 0);
             
             OnPlayerOutOfFuel?.Invoke();
+            
+            gameOverScreen.SetActive(true);
             
             return;
         }

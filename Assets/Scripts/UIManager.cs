@@ -10,6 +10,20 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI heldTreasure;
     public TextMeshProUGUI depositedTreasure;
+    public Button playButton;
+    public Button settingsButton;
+    public Button quitButton;
+    public GameObject settingScreen;
+
+
+
+    public void Start()
+    {
+        playButton.onClick.AddListener(playGame);
+        settingsButton.onClick.AddListener(settingsScreen);
+        quitButton.onClick.AddListener(quitGame);
+    }
+
     public Slider throttleSlider;
     
 
@@ -20,6 +34,7 @@ public class UIManager : MonoBehaviour
 
     
 
+
     public void updateStats()
     {
         heldTreasure.text = ("Treasure Held:" + GameManager.Instance.treasureCollected.ToString());
@@ -28,5 +43,22 @@ public class UIManager : MonoBehaviour
 
 
    
+
+    void playGame()
+    {
+        SceneManager.LoadScene("PlayTestSprint2");
+    }
+
+    void settingsScreen()
+    {
+        settingScreen.SetActive(true);
+
+    }
+
+    void quitGame()
+    {
+        Application.Quit();
+
+    }
 
 }
