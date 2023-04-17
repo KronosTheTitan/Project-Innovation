@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/CalibrateScene.unity
+    guid: 6085f42d575d5724bb217f562e4c6e48
+  - enabled: 1
+    path: Assets/Scenes/Final Scene.unity
+    guid: a0a584675ff760047b52828ecf419e60
+  - enabled: 1
     path: Assets/Scenes/PlayTestSprint2.unity
     guid: 5a4df10a13ae9b94a8811cc8de9ada69
   m_configObjects: {}
