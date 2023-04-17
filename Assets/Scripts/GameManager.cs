@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int treasureNeededForVictory;
     
     [SerializeField] private GameObject victoryScreen;
+    [SerializeField] private float AudioVolume;
+
+
 
     public int rocketsReplenished;
 

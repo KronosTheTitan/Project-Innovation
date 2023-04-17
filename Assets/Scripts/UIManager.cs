@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.Audio;
 
 public class UIManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class UIManager : MonoBehaviour
     public Button quitButton;
     public GameObject settingScreen;
     public GameObject[] missleList;
+    public Slider volumeSlider;
+
 
 
 
@@ -23,6 +26,7 @@ public class UIManager : MonoBehaviour
         playButton.onClick.AddListener(playGame);
         settingsButton.onClick.AddListener(settingsScreen);
         quitButton.onClick.AddListener(quitGame);
+
     }
 
     public Slider throttleSlider;
@@ -73,5 +77,20 @@ public class UIManager : MonoBehaviour
         Application.Quit();
 
     }
+
+    public void pauseMenu()
+    {
+        settingScreen.gameObject.SetActive(true);
+        Time.timeScale = 0;
+
+    }
+
+    public void resume()
+    {
+        settingScreen.gameObject.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    
 
 }
