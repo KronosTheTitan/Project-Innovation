@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] private GameObject victoryScreen;
 
+    public int rocketsReplenished;
+
     public void PickupTreasure()
     {
         treasureCollected++;
@@ -44,7 +46,7 @@ public class GameManager : MonoBehaviour
             player.LockPlayer();
             SceneManager.LoadScene("victoryScene");
         }
-        player.AddRocket(treasureCollected);
+        player.AddRocket(rocketsReplenished);
         treasureCollected = 0;
     }
 

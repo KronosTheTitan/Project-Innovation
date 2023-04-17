@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     public Button settingsButton;
     public Button quitButton;
     public GameObject settingScreen;
+    public GameObject[] missleList;
 
 
 
@@ -41,6 +42,18 @@ public class UIManager : MonoBehaviour
         depositedTreasure.text = ("Treasure Deposited:" + GameManager.Instance.treasureDeposited.ToString());
     }
 
+    public void removeAmmo(int x)
+    {
+        missleList[x].gameObject.SetActive(false);
+    }
+
+    public void updateAmmo(int x)
+    {
+        for(int i = 0; i < x; i++)
+        {
+            missleList[i].gameObject.SetActive(true);
+        }
+    }
 
    
 

@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
-    path: Assets/Scenes/PlayTestSprint2.unity
-    guid: 5a4df10a13ae9b94a8811cc8de9ada69
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 6079f38707382be4f958e02b2b793588

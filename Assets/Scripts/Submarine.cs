@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
+
 [RequireComponent(typeof(Rigidbody))]
 public class Submarine : MonoBehaviour
 {
@@ -52,6 +53,10 @@ public class Submarine : MonoBehaviour
     [SerializeField] private ShakeDetector shakeDetector;
     
     private bool locked = false;
+
+    public UIManager UIref;
+
+
 
     public void LockPlayer()
     {
@@ -160,8 +165,12 @@ public class Submarine : MonoBehaviour
 
         
         shootSource.Play();
+        UIref.removeAmmo(torpedoesStored);
+        
 
         Instantiate(torpedoPrefab, rocketSpawn.position, rocketSpawn.rotation);
+
+
     }
 
     //Audio
@@ -171,5 +180,6 @@ public class Submarine : MonoBehaviour
     {
         torpedoesStored += amount;
         torpedoesStored = Mathf.Clamp(torpedoesStored, 0, maxTorpedoesStored);
+        UIref.updateAmmo(torpedoesStored);
     }
 }
