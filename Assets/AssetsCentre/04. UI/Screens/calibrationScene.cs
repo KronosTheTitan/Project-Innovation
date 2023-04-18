@@ -31,7 +31,7 @@ public class calibrationScene : MonoBehaviour
         calibrationScreen.gameObject.SetActive(true);
         waitScreen.gameObject.SetActive(false);
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene("Final Scene");
+        SceneManager.LoadScene("tutorialScene");
 
 
     }

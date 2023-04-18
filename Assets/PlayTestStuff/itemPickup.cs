@@ -26,7 +26,7 @@ public class itemPickup : MonoBehaviour
             uiPoopi.updateStats();
 
         }
-        if(other.tag == "Deposit")
+        if(other.gameObject.CompareTag("Deposit"))
         {
             GameManager.Instance.DespositTreasure();
             uiPoopi.updateStats();

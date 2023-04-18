@@ -27,7 +27,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int treasureDeposited;
     [SerializeField] private int treasureNeededForVictory;
     
-    [SerializeField] private GameObject victoryScreen;
+
+    [SerializeField] private float AudioVolume;
+
+
+
+    public int rocketsReplenished;
 
     public void PickupTreasure()
     {
@@ -40,10 +45,11 @@ public class GameManager : MonoBehaviour
 
         if (treasureDeposited >= treasureNeededForVictory)
         {
-            victoryScreen.SetActive(true);
+            
             player.LockPlayer();
+            SceneManager.LoadScene("victoryScene");
         }
-        player.AddRocket(treasureCollected);
+        player.AddRocket(rocketsReplenished);
         treasureCollected = 0;
     }
 
@@ -56,7 +62,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene(mainMenuSceneName);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public Submarine GetPlayer()

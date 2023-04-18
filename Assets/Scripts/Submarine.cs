@@ -2,6 +2,8 @@ using Shake;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
+
 
 [RequireComponent(typeof(Rigidbody))]
 public class Submarine : MonoBehaviour
@@ -52,6 +54,10 @@ public class Submarine : MonoBehaviour
     
     private bool locked = false;
 
+    public UIManager UIref;
+
+
+
     public void LockPlayer()
     {
         locked = true;
@@ -79,6 +85,12 @@ public class Submarine : MonoBehaviour
                 
             }
 
+            if(currentFuel <= 0)
+            {
+                SceneManager.LoadScene("squidDeath");
+
+            }
+
             return;
         }
 
@@ -97,13 +109,14 @@ public class Submarine : MonoBehaviour
         
         
         //Check if the player has enough fuel to continue.
-        if (currentFuel <= 0)
+        if (currentFuel <= 0 && squidPresent == false)
         {
             throttleSlider.value = 0;
             rigidbody.velocity = new Vector3(0, 0, 0);
             
             OnPlayerOutOfFuel?.Invoke();
-            
+
+            SceneManager.LoadScene("fuelDeath");
             gameOverScreen.SetActive(true);
             
             return;
@@ -152,8 +165,14 @@ public class Submarine : MonoBehaviour
 
         
         shootSource.Play();
+        UIref.removeAmmo(torpedoesStored);
+
+        //Debug.Log("Submarine: " + this.gameObject.transform.position);
+        //Debug.Log("Rocket: " + rocketSpawn.position);
 
         Instantiate(torpedoPrefab, rocketSpawn.position, rocketSpawn.rotation);
+
+
     }
 
     //Audio
@@ -163,5 +182,6 @@ public class Submarine : MonoBehaviour
     {
         torpedoesStored += amount;
         torpedoesStored = Mathf.Clamp(torpedoesStored, 0, maxTorpedoesStored);
+        UIref.updateAmmo(torpedoesStored);
     }
 }

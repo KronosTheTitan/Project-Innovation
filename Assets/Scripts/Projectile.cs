@@ -14,13 +14,22 @@ public class Projectile : MonoBehaviour
         rigidbody.velocity = transform.forward * speed;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            collision.gameObject.GetComponent<Shark>().TakeDamage();
+            Debug.Log("EnemyHit");
+            other.gameObject.GetComponent<Shark>().TakeDamage();
         }
-        
-        Destroy(gameObject);
+
+        if(other.gameObject.CompareTag("Player"))
+        {
+            return;
+        }
+
+       // Debug.Log("Destroy");
+       // Destroy(gameObject);
     }
+
+    
 }

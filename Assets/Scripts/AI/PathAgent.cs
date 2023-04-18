@@ -21,6 +21,12 @@ public class PathAgent : MonoBehaviour
         this.transform.position = path.GetPoint(0);
         currentPosition = this.transform.position;
     }
+
+    public void updateCurrentPosition(Vector3 newPos)
+    {
+        currentPosition = newPos;
+    }
+
     public Vector3 MoveAlongPath()
     {
         int nextPointIndex = pathIndex + 1;
