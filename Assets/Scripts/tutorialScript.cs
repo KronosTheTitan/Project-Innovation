@@ -14,7 +14,7 @@ public class tutorialScript : MonoBehaviour
    
    public void nextButton()
     {
-        if (stage >= 8)
+        if (stage >= 9)
         {
             Destroy(nextButtonObject);
             SceneManager.LoadScene("Final Scene");

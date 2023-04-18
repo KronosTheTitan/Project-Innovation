@@ -410,6 +410,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4488173920133046314}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &3005047572777948417
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3641261141402770811}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 4.4113226
+  m_Height: 23.215912
+  m_Direction: 2
+  m_Center: {x: -0.29389954, y: -0.18257761, z: 0.4328766}
 --- !u!64 &4488173921033241946
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -445,6 +459,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4488173921033241948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3641261141402770811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a4bb1e4ded2184da7565b95fe30de7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 0}
+  agroDistance: 69
+  attackSpeed: 15
+  coolDownTimer: 10
+  damage: 100
 --- !u!114 &4488173921033241949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,36 +492,6 @@ MonoBehaviour:
   speed: 5
   pathIndex: 1
   currentPosition: {x: 0, y: 0, z: 0}
---- !u!114 &4488173921033241948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3641261141402770811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98a4bb1e4ded2184da7565b95fe30de7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 4488173921033241949}
-  agroDistance: 69
-  attackSpeed: 15
-  damage: 100
---- !u!136 &3005047572777948417
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3641261141402770811}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 4.4113226
-  m_Height: 23.215912
-  m_Direction: 2
-  m_Center: {x: -0.29389954, y: -0.18257761, z: 0.4328766}
 --- !u!4 &4162323432342456257 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1cd5dae29323a374b8ce0f251cb6893b,

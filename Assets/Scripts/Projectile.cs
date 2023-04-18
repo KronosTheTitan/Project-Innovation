@@ -18,9 +18,11 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("EnemyHit");
             collision.gameObject.GetComponent<Shark>().TakeDamage();
         }
-        
+
+        Debug.Log("Destroy");
         Destroy(gameObject);
     }
 }

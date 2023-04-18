@@ -58,7 +58,10 @@ public class Shark : MonoBehaviour
     
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name != "Player" || coolDown == true)
+        if (collision.gameObject.name != "Player" )
+            return;
+
+        if (coolDown == true)
             return;
        
         Submarine submarine = collision.gameObject.GetComponent<Submarine>();

@@ -122,12 +122,12 @@ public class SonarScanner : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            Debug.Log("poopi");
+            //Debug.Log("poopi");
             enemies.Add(other.gameObject);
         }
         if (other.tag == "POI")
         {
-            Debug.Log("aaaa");
+           // Debug.Log("aaaa");
             POI.Add(other.gameObject);
 
         }
@@ -138,13 +138,13 @@ public class SonarScanner : MonoBehaviour
     {
         if(other.tag == "Enemy")
         {
-            Debug.Log("WHERE MY POOPI");
+            //Debug.Log("WHERE MY POOPI");
             enemies.Remove(other.gameObject);
         }
 
         if (other.tag == "POI")
         {
-            Debug.Log("oooooo");
+           // Debug.Log("oooooo");
             POI.Remove(other.gameObject);
         }
     }
