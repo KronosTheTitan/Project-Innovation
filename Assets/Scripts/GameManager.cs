@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int treasureDeposited;
     [SerializeField] private int treasureNeededForVictory;
     
-    [SerializeField] private GameObject victoryScreen;
+
     [SerializeField] private float AudioVolume;
 
 
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 
         if (treasureDeposited >= treasureNeededForVictory)
         {
-            victoryScreen.SetActive(true);
+            
             player.LockPlayer();
             SceneManager.LoadScene("victoryScene");
         }

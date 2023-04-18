@@ -50863,10 +50863,10 @@ MonoBehaviour:
   rigidbody: {fileID: 1030961908}
   currentFuel: 500
   maxFuel: 500
-  lastSquid: 0
-  minTimeBetweenSquid: 60
-  maxTimeBetweenSquid: 120
-  currentTimeBetweenSquid: 30
+  lastSquid: 999999
+  minTimeBetweenSquid: 999999
+  maxTimeBetweenSquid: 99999
+  currentTimeBetweenSquid: 9999999
   squidPresent: 0
   squid: {fileID: 810046063}
   gameOverScreen: {fileID: 0}
