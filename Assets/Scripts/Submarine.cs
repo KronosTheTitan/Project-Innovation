@@ -166,7 +166,9 @@ public class Submarine : MonoBehaviour
         
         shootSource.Play();
         UIref.removeAmmo(torpedoesStored);
-        
+
+        Debug.Log("Submarine: " + this.gameObject.transform.position);
+        Debug.Log("Rocket: " + rocketSpawn.position);
 
         Instantiate(torpedoPrefab, rocketSpawn.position, rocketSpawn.rotation);
 
